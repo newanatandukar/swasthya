@@ -182,6 +182,25 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
+    /* ----------------------------
+    *    REACT NATIVE FIREBASE
+    * ---------------------------- */
+    implementation "com.google.android.gms:play-services-base:17.0.0"
+    // https://firebase.google.com/support/release-notes/android?hl=pt-br
+    // using bom versioning to fix version conflict of peer dependencies
+    // Firebase bom setup
+    implementation platform("com.google.firebase:firebase-bom:22.0.0")
+
+    /* ----------------
+    *   FIREBASE SDKS
+    * ----------------- */
+    implementation 'com.google.firebase:firebase-auth'
+    implementation "com.google.firebase:firebase-core"
+    implementation "com.google.firebase:firebase-messaging"
+
+    // For React Native Firebase Notifications
+    implementation 'me.leolin:ShortcutBadger:1.1.22@aar'
+
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
         debugImplementation files(hermesPath + "hermes-debug.aar")
@@ -199,3 +218,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+apply plugin: 'com.google.gms.google-services'
