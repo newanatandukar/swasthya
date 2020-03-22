@@ -11,6 +11,7 @@ import diseases from './diseases';
 import news from './news';
 import quickLinks from './quickLinks';
 import videos from './videos';
+import { provinceData, ageData } from './profileData';
 
 export {
   categories,
@@ -26,4 +27,6 @@ export {
   news,
   quickLinks,
   videos,
+  provinceData,
+  ageData,
 };
