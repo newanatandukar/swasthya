@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform } from 'react-native';
+import { Provider } from 'react-redux';
+
 import { SafeAreaView } from 'react-navigation';
 import firebase from 'react-native-firebase';
 
+import Store from './src/Store';
 import AppContainer from './src/AppContainer';
 import { Styles } from './src/global';
 
@@ -105,12 +108,18 @@ class App extends Component {
 
   render() {
     if (Platform.OS === 'android') {
-      return <AppContainer />;
+      return (
+        <Provider store={Store}>
+          <AppContainer />
+        </Provider>
+      );
     }
     return (
-      <SafeAreaView style={s.flex1}>
-        <AppContainer />
-      </SafeAreaView>
+      <Provider store={Store}>
+        <SafeAreaView style={s.flex1}>
+          <AppContainer />
+        </SafeAreaView>
+      </Provider>
     );
   }
 }

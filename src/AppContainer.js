@@ -69,6 +69,7 @@ const appStack = createStackNavigator({
   newsView: {
     screen: views.NewsView,
     navigationOptions: {
+      headerTitle: 'समाचार',
       headerBackTitleVisible: false,
     },
   },

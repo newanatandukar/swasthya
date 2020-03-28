@@ -8,7 +8,6 @@ import std from './std';
 import childCare from './childCare';
 import nutrition from './nutrition';
 import diseases from './diseases';
-import news from './news';
 import quickLinks from './quickLinks';
 import videos from './videos';
 import { provinceData, ageData } from './profileData';
@@ -24,7 +23,6 @@ export {
   childCare,
   nutrition,
   diseases,
-  news,
   quickLinks,
   videos,
   provinceData,
