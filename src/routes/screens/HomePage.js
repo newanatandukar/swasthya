@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import { withApp, getRssFeedRequest } from '../../actions';
+
 import {
   ImageView,
   Styles,
@@ -218,4 +220,15 @@ const s = StyleSheet.create({
   ...Styles,
 });
 
-export default HomePage;
+const mapStateToProps = state => {
+  console.log('s', state);
+  return {
+    loading: state.loading,
+  };
+};
+
+const mapDispatchToProps = {
+  getRssFeedRequest,
+};
+
+export default withApp(mapStateToProps, mapDispatchToProps)(HomePage);
