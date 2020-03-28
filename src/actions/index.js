@@ -12,9 +12,8 @@ export const getRssFeedRequest = () => async dispatch => {
     const data = await Api.getRssFeed();
     dispatch({ type: RSS_FEED_SUCCESS, data });
   } catch (error) {
-    // const errorMessage =
-    //   messages['/notification-center'].DELETE[JSON.stringify(error.response.status)];
-    const customError = new Error(error);
+    const errorMessage = 'Cannot fetch news';
+    const customError = new Error(errorMessage);
     dispatch({ type: RSS_FEED_FAILURE, error });
     throw customError;
   }

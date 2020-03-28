@@ -15,10 +15,10 @@ export default (state = initialState, action) => {
       };
 
     case RSS_FEED_SUCCESS:
-      console.log('action', action);
       return {
         ...state,
         loading: false,
+        rss: action.data,
       };
 
     case RSS_FEED_FAILURE:

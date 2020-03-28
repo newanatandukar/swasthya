@@ -22,11 +22,15 @@ import {
   categories,
   campaigns,
   quickLinks,
-  news,
   videos,
 } from '../../global';
 
 class HomePage extends Component {
+  constructor(props) {
+    super(props);
+    props.getRssFeedRequest();
+  }
+
   renderCategories = ({ item }) => {
     const viewStyle = [
       s.justifyCenter,
@@ -50,6 +54,11 @@ class HomePage extends Component {
   };
 
   renderNews = ({ item }) => {
+    const { title, content } = item;
+    const startingOfFirstImageTagIndex = content.indexOf('src=');
+    const partialString = content.substring(startingOfFirstImageTagIndex, content.length);
+    const endOfFirstImageTagIndex = partialString.indexOf('.jpg');
+    const image = partialString.substring(5, endOfFirstImageTagIndex + 4);
     const viewStyle = [
       s.justifyCenter,
       s.itemsCenter,
@@ -69,8 +78,13 @@ class HomePage extends Component {
       <TouchableOpacity
         onPress={() => this.props.navigation.navigate('newsView', { item })}
         style={viewStyle}>
-        <Image source={item.image} style={imageStyle} resizeMode="contain" resizeMethod="scale" />
-        <Text>{item.title}</Text>
+        <Image
+          source={{ uri: `${image}` }}
+          style={imageStyle}
+          resizeMode="contain"
+          resizeMethod="scale"
+        />
+        <Text>{title}</Text>
       </TouchableOpacity>
     );
   };
@@ -138,6 +152,7 @@ class HomePage extends Component {
   };
 
   render() {
+    const { rss } = this.props;
     const contentStyle = [s.bgLighter, s.flex1, s.pt4, s.radiusTop32];
     const categoryStyle = [s.py8, s.pl16, s.my8];
     const xMarginStyle = [s.py8, s.px16, s.my8];
@@ -145,7 +160,6 @@ class HomePage extends Component {
     const marqueeStyle = [s.justifyCenter, s.itemsCenter, s.px4, s.bgLightSecTheme, s.py12, s.mt8];
     const marqueeTextStyle = [s.secondaryTheme];
 
-    const a = 'https://www.nepalihealth.com/feed/';
     return (
       <ScrollView contentContainerStyle={[s.bgTheme]}>
         <TimeView />
@@ -196,7 +210,7 @@ class HomePage extends Component {
             <FlatList
               horizontal
               showsHorizontalScrollIndicator={false}
-              data={news}
+              data={rss}
               renderItem={this.renderNews}
               keyExtractor={item => item.id}
             />
@@ -221,9 +235,9 @@ const s = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  console.log('s', state);
   return {
     loading: state.loading,
+    rss: state.rss,
   };
 };
 
