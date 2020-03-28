@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Platform, AsyncStorage } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import firebase from 'react-native-firebase';
 
@@ -8,49 +8,99 @@ import { Styles } from './src/global';
 
 class App extends Component {
   componentDidMount() {
-    const channel = new firebase.notifications.Android.Channel(
-      'insider',
-      'insider channel',
-      firebase.notifications.Android.Importance.Max,
-    );
-    firebase.notifications().android.createChannel(channel);
-    this.checkPermission();
-    this.createNotificationListeners();
+    this.initializeNotifications();
   }
 
-  async getToken() {
-    let fcmToken = await AsyncStorage.getItem('fcmToken');
-    if (!fcmToken) {
-      fcmToken = await firebase.messaging().getToken();
-      if (fcmToken) {
-        await AsyncStorage.setItem('fcmToken', fcmToken);
-      }
-    }
-  }
-
-  async checkPermission() {
-    const enabled = await firebase.messaging().hasPermission();
-    if (enabled) {
-      this.getToken();
-    } else {
-      this.requestPermission();
-    }
-  }
-
-  async requestPermission() {
+  async initializeNotifications() {
     try {
-      await firebase.messaging().requestPermission();
-      this.getToken();
-    } catch (error) {
-      console.log('permission rejected');
+      firebase.notifications().setBadge(0);
+      const enabled = await firebase.messaging().hasPermission();
+      if (!enabled) {
+        try {
+          await firebase.messaging().requestPermission();
+        } catch (e) {
+          // eslint-disable-next-line no-alert
+          alert('Please enable app notifications.');
+          return;
+        }
+      }
+    } catch (e) {
+      return;
     }
-  }
 
-  async createNotificationListeners() {
-    firebase.notifications().onNotification(notification => {
-      notification.android.setChannelId('insider').setSound('default');
-      firebase.notifications().displayNotification(notification);
+    try {
+      const fcmToken = await firebase.messaging().getToken();
+      if (fcmToken) {
+        console.log('got fcm token', fcmToken);
+      }
+    } catch (e) {
+      return;
+    }
+
+    this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(token => {
+      console.log('refreshed fcm token', token);
     });
+
+    this.notificationDisplayedListener = firebase
+      .notifications()
+      .onNotificationDisplayed(async notification => {
+        console.log('notificationDisplayedListener', notification);
+      });
+
+    this.notificationListener = firebase.notifications().onNotification(notification => {
+      const { title, body, data, subtitle, notificationId, ios } = notification;
+
+      const channel = new firebase.notifications.Android.Channel(
+        'app-notifications',
+        'App Notifications',
+        firebase.notifications.Android.Importance.High,
+      ).setDescription('In-app notifications');
+
+      firebase.notifications().android.createChannel(channel);
+      if (Platform.OS === 'android') {
+        const localNotification = new firebase.notifications.Notification({
+          sound: 'default',
+          show_in_foreground: true,
+        })
+          .setNotificationId(notificationId)
+          .setTitle(title)
+          .setSubtitle(subtitle)
+          .setBody(body)
+          .setData(data)
+          .android.setChannelId('app-notifications') // e.g. the id you chose above
+          // .android.setSmallIcon('ic_stat_notification') // create this icon in Android Studio
+          .android.setColor('#000000') // you can set a color here
+          .android.setPriority(firebase.notifications.Android.Priority.High);
+
+        firebase
+          .notifications()
+          .displayNotification(localNotification)
+          .catch(err => console.error('err', err));
+      } else if (Platform.OS === 'ios') {
+        const localNotification = new firebase.notifications.Notification()
+          .setNotificationId(notificationId)
+          .setTitle(title)
+          .setSubtitle(subtitle)
+          .setBody(body)
+          .setData(data)
+          .ios.setBadge(ios.badge);
+        firebase
+          .notifications()
+          .displayNotification(localNotification)
+          .catch(err => console.error('err', err));
+      }
+    });
+
+    this.messageListener = firebase.messaging().onMessage(message => {
+      // Store.dispatch(listLocationsRequest({ message }));
+      console.log(JSON.stringify(message));
+    });
+
+    this.notificationOpenedListener = firebase
+      .notifications()
+      .onNotificationOpened(async notificationOpen => {
+        console.log('onNotificationOpened', notificationOpen);
+      });
   }
 
   render() {
