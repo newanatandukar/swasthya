@@ -164,7 +164,6 @@ class HomePage extends Component {
             </TextTicker>
           </View>
           <View style={categoryStyle}>
-            <Text style={categoryContentTextStyle}>Content Book</Text>
             <FlatList
               horizontal
               showsHorizontalScrollIndicator={false}
@@ -174,7 +173,6 @@ class HomePage extends Component {
           </View>
           <SearchBar />
           <View style={xMarginStyle}>
-            <Text style={categoryContentTextStyle}>Quick Links</Text>
             <FlatList
               data={quickLinks}
               renderItem={this.renderQuickLinks}
@@ -183,7 +181,6 @@ class HomePage extends Component {
             />
           </View>
           <View style={categoryStyle}>
-            <Text style={categoryContentTextStyle}>Running Campaigns</Text>
             <FlatList
               horizontal
               showsHorizontalScrollIndicator={false}
@@ -193,7 +190,7 @@ class HomePage extends Component {
             />
           </View>
           <View style={categoryStyle}>
-            <Text style={categoryContentTextStyle}>News</Text>
+            <Text style={categoryContentTextStyle}>समाचार</Text>
             <FlatList
               horizontal
               showsHorizontalScrollIndicator={false}
@@ -203,7 +200,7 @@ class HomePage extends Component {
             />
           </View>
           <View style={xMarginStyle}>
-            <Text style={categoryContentTextStyle}>Videos</Text>
+            <Text style={categoryContentTextStyle}>भिडियो</Text>
             <FlatList
               data={videos}
               numColumns={2}

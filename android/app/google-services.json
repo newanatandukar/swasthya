@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "805326207869",
+    "firebase_url": "https://swasthya-4b063.firebaseio.com",
+    "project_id": "swasthya-4b063",
+    "storage_bucket": "swasthya-4b063.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805326207869:android:eca76edade67a68ccbaa14",
+        "android_client_info": {
+          "package_name": "com.swasthya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805326207869-5iulv9s3gdvau0dau4t6djj0p55act8h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.swasthya",
+            "certificate_hash": "ac91456414a6fe7378d89d3cda0e7625d82df8eb"
+          }
+        },
+        {
+          "client_id": "805326207869-bog4fvk9c7ce8n8lidv21h7m7u5r547k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDom_my0zS8SIxHpt3Dr42Xa3n4Z2r9w-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805326207869-bog4fvk9c7ce8n8lidv21h7m7u5r547k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "805326207869-4d78ncg46qmp04mupie383ub2l5gjkre.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.swasthya"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
