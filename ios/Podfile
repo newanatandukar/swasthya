@@ -36,8 +36,10 @@ target 'swasthya' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
-
+  # Required by RNFirebase
+  pod 'Firebase/Core', '~> 6.13.0'
+  pod 'Firebase/Messaging', '~> 6.13.0'
+  
   target 'swasthyaTests' do
     inherit! :search_paths
     # Pods for testing
