@@ -71,26 +71,22 @@ class Profile extends Component {
             onChangeText={text => this.setState({ number: text })}
           />
           <Text style={labelStyle}> ठेगाना </Text>
-          <View>
-            <Picker
-              selectedValue={province}
-              style={inputStyle}
-              onValueChange={itemValue => this.setState({ province: itemValue })}>
-              {provinceValues.map(each => (
-                <Picker.Item key={each} label={each} value={each} />
-              ))}
-            </Picker>
-          </View>
-          <View>
-            <Picker
-              selectedValue={district}
-              style={inputStyle}
-              onValueChange={itemValue => this.setState({ district: itemValue })}>
-              {selectedDistrict.map(each => (
-                <Picker.Item key={each} label={each} value={each} />
-              ))}
-            </Picker>
-          </View>
+          <Picker
+            selectedValue={province}
+            style={inputStyle}
+            onValueChange={itemValue => this.setState({ province: itemValue })}>
+            {provinceValues.map(each => (
+              <Picker.Item key={each} label={each} value={each} />
+            ))}
+          </Picker>
+          <Picker
+            selectedValue={district}
+            style={inputStyle}
+            onValueChange={itemValue => this.setState({ district: itemValue })}>
+            {selectedDistrict.map(each => (
+              <Picker.Item key={each} label={each} value={each} />
+            ))}
+          </Picker>
           <Text style={labelStyle}> उमेर </Text>
           <Picker
             selectedValue={ageGroup}
