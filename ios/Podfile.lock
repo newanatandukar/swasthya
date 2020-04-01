@@ -105,6 +105,9 @@ PODS:
     - Folly (= 2018.10.22.00)
     - RCTRequired (= 0.61.5)
     - React-Core (= 0.61.5)
+  - RCTYouTube (2.0.0):
+    - React
+    - YoutubePlayer-in-WKWebView (~> 0.3.1)
   - React (0.61.5):
     - React-Core (= 0.61.5)
     - React-Core/DevSupport (= 0.61.5)
@@ -321,6 +324,7 @@ PODS:
   - RNVectorIcons (6.6.0):
     - React
   - Yoga (1.14.0)
+  - YoutubePlayer-in-WKWebView (0.3.4)
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
@@ -332,6 +336,7 @@ DEPENDENCIES:
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
+  - RCTYouTube (from `../node_modules/react-native-youtube`)
   - React (from `../node_modules/react-native/`)
   - React-Core (from `../node_modules/react-native/`)
   - React-Core/DevSupport (from `../node_modules/react-native/`)
@@ -381,6 +386,7 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - Protobuf
+    - YoutubePlayer-in-WKWebView
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -397,6 +403,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/RCTRequired"
   RCTTypeSafety:
     :path: "../node_modules/react-native/Libraries/TypeSafety"
+  RCTYouTube:
+    :path: "../node_modules/react-native-youtube"
   React:
     :path: "../node_modules/react-native/"
   React-Core:
@@ -475,6 +483,7 @@ SPEC CHECKSUMS:
   Protobuf: dd1aaea7140debfe4dd0683fb8ef208e527ae153
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
   RCTTypeSafety: 9aa1b91d7f9310fc6eadc3cf95126ffe818af320
+  RCTYouTube: 57458fe8653bb696b7d7585326d735d01b871af8
   React: b6a59ef847b2b40bb6e0180a97d0ca716969ac78
   React-Core: 688b451f7d616cc1134ac95295b593d1b5158a04
   React-CoreModules: d04f8494c1a328b69ec11db9d1137d667f916dcb
@@ -501,6 +510,7 @@ SPEC CHECKSUMS:
   RNScreens: 03bf608b92ac0acf323f47d8f5b63a8f829340c8
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
+  YoutubePlayer-in-WKWebView: af2f5929fc78882d94bfdfeea999b661b78d9717
 
 PODFILE CHECKSUM: e08fd380cb7be09424f76248c45b6d7c08ec9abe
 
