@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-// import { Audio, Video } from 'expo-av';
+import YouTube from 'react-native-youtube';
 
 import { Styles } from '../../global';
 
@@ -17,18 +17,17 @@ class VideoView extends Component {
 
     return (
       <View style={viewStyle}>
-        <Text>{link}</Text>
-        {/* <Video
-          source={{ uri: `http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4` }}
-          rate={1.0}
-          volume={1.0}
-          isMuted={false}
-          resizeMode="contain"
-          shouldPlay
-          isLooping={false}
-          useNativeControls
-          orientation="landscape"
-          style={[s.wScreen, { height: 300 }]}
+        {/* <Text>{link}</Text> */}
+        {/* <YouTube
+          videoId="KVZ-P-ZI6W4" // The YouTube video ID
+          play // control playback of video with true/false
+          fullscreen // control whether the video should play in fullscreen or inline
+          loop // control whether the video should loop when ended
+          onReady={e => this.setState({ isReady: true })}
+          onChangeState={e => this.setState({ status: e.state })}
+          onChangeQuality={e => this.setState({ quality: e.quality })}
+          onError={e => this.setState({ error: e.error })}
+          style={{ alignSelf: 'stretch', height: 300 }}
         /> */}
       </View>
     );

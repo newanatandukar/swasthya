@@ -4879,6 +4879,11 @@ negotiator@0.6.2:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
+nepali-date@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/nepali-date/-/nepali-date-0.1.3.tgz#e075832d56a8e8b172ca2e2e3ad715029825be67"
+  integrity sha1-4HWDLVao6LFyyi4uOtcVApglvmc=
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -5442,7 +5447,7 @@ prompts@^2.0.1, prompts@^2.3.0:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5513,6 +5518,11 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   version "16.13.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527"
   integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
+
+react-native-actionsheet@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/react-native-actionsheet/-/react-native-actionsheet-2.4.2.tgz#6a00dd51a75ef2c8974312130e405af73191500f"
+  integrity sha512-DBoWIvVwuWXuptF4t46pBqkFxaUxS+rsIdHiA05t0n4BdTIDV2R4s9bLEUVOGzb94D7VxIamsXZPA/3mmw+SXg==
 
 react-native-elements@^1.2.7:
   version "1.2.7"
@@ -5650,6 +5660,13 @@ react-native-webview@^9.0.1:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"
     rnpm-plugin-windows "^0.5.1-0"
+
+react-native-youtube@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-youtube/-/react-native-youtube-2.0.0.tgz#f9789a43dbe7a6354d69c9b63d533499f2c6dca1"
+  integrity sha512-i21jL4kyp2epgV0d2gPSNQ0JvuVSwUL1t6CUzcXZZY7ezTSA0FB4kR9/cWpu/Nd3kkrt6WnZtGYuWKIfzbVbUw==
+  dependencies:
+    prop-types "^15.5.0"
 
 react-native@0.61.5:
   version "0.61.5"
