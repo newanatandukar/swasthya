@@ -17,8 +17,8 @@ class VideoView extends Component {
 
     return (
       <View style={viewStyle}>
-        <Text>{link}</Text>
-        <YouTube
+        {/* <Text>{link}</Text> */}
+        {/* <YouTube
           videoId="KVZ-P-ZI6W4" // The YouTube video ID
           play // control playback of video with true/false
           fullscreen // control whether the video should play in fullscreen or inline
@@ -28,7 +28,7 @@ class VideoView extends Component {
           onChangeQuality={e => this.setState({ quality: e.quality })}
           onError={e => this.setState({ error: e.error })}
           style={{ alignSelf: 'stretch', height: 300 }}
-        />
+        /> */}
       </View>
     );
   }

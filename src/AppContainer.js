@@ -89,7 +89,7 @@ const appStack = createStackNavigator({
 });
 
 const appContainer = createSwitchNavigator({
-  // profile: views.Profile,
+  profile: views.Profile,
   appStack,
 });
 
