@@ -72,7 +72,7 @@ class HomePage extends Component {
       s.p8,
       { width: 150 },
     ];
-    const imageStyle = { width: 100, height: 100 };
+    const imageStyle = [{ width: 100, height: 100 }, s.mb8];
 
     return (
       <TouchableOpacity
@@ -81,10 +81,10 @@ class HomePage extends Component {
         <Image
           source={{ uri: `${image}` }}
           style={imageStyle}
-          resizeMode="contain"
+          resizeMode="stretch"
           resizeMethod="scale"
         />
-        <Text>{title}</Text>
+        <Text numberOfLines={3}>{title}</Text>
       </TouchableOpacity>
     );
   };
