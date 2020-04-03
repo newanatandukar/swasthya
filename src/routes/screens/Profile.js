@@ -46,21 +46,6 @@ class Profile extends Component {
         break;
     }
   };
-  handleDistrictSheetClick = (index, districtData) => {
-    this.setState({ district: districtData[index] });
-  };
-
-  handleAgeSheetClick = (index, ageData) => {
-    console.log('index', index, ageData);
-    switch (index) {
-      // case 5:
-      //   this.navigateToScreen('UsersInvite');
-      //   break;
-
-      default:
-        break;
-    }
-  };
 
   render() {
     const { name, number, province, district, ageGroup } = this.state;
